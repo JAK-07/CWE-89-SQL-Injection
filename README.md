@@ -51,10 +51,13 @@ These are valid user-provided data that contain apostrophes or data that are inc
 On production builds, protect from leaking database schema details – table names, for example – by enforcing strict input sanitization and parameterization using ORM bindings with generic error messaging.
 
 ## 📸 Execution & Evidence
-Exploit Execution (Payload Validation)
-Database Enumeration / Output
-Lab Directory Structure
-🛡️ Remediation & Mitigation
+### Login Authentication Bypass
+![Login Payload](evidence/login_payload.png)
+
+### Successful Administrator Dashboard
+![Admin Dashboard](evidence/admin_dashboard.png)
+
+## Remediation & Mitigation
 To fix SQL Injection vulnerabilities:
 
 Use Prepared Statements (Parameterized Queries): Ensure database drivers treat user input strictly as data, never as executable code.

@@ -42,13 +42,15 @@ SQL Injection occurs when untrusted user input is directly concatenated into a d
 ## Custom Python Exploit PoC
 A lightweight Python script (`poc/exploit.py`) was developed to automate session handling, inject payloads into vulnerable parameters, and parse extracted database records.
 
-```python
-import urllib.request, urllib.parse, http.cookiejar
+## Detection Rule & Monitoring Strategy
+### The most effective way to detect and monitor a risk.
+Create a web server log monitoring application that logs into web container stdout and/or web server logs for repeated SQLITE_ERROR database exceptions with unusual characters in queries (', OR, --, 1=1).
+### False Positives: 
+These are valid user-provided data that contain apostrophes or data that are incorrect for the Dashboard search.
+### Mitigation: 
+On production builds, protect from leaking database schema details – table names, for example – by enforcing strict input sanitization and parameterization using ORM bindings with generic error messaging.
 
-base_url = "http://localhost/vulnerabilities/sqli/"
-# Automated SQL injection query payload validation...
-```
-📸 Execution & Evidence
+## 📸 Execution & Evidence
 Exploit Execution (Payload Validation)
 Database Enumeration / Output
 Lab Directory Structure
